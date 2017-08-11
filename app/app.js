@@ -1,5 +1,6 @@
-import './app.styl'
-import './index.pug'
+import './assets/styles/whitespace-reset-modified.css'
+import './assets/styles/main.css'
+import './assets/views/index.html'
 
 const component = () => {
   let element = document.createElement('div')
