@@ -1,5 +1,5 @@
 import './assets/styles/whitespace-reset-modified.css'
-import './assets/styles/main.css'
+import './assets/styles/main.styl'
 import './assets/views/index.html'
 
 const component = () => {
