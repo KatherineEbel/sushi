@@ -1,11 +1,12 @@
 'use strict';
 
-import path from 'path';
-import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-export default {
+module.exports = {
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
@@ -13,6 +14,7 @@ export default {
   ],
   output: {
     path: path.join(__dirname, 'public'),
+    filename: '[name].js',
     publicPath: '/'
   },
   stats: {
@@ -68,7 +70,8 @@ export default {
       $: 'jquery',
       jQuery: 'jquery',
       _: 'lodash'
-    })
+    }),
+    new CleanWebpackPlugin(['public'])
   ],
   resolve: {
     modules: [
