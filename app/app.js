@@ -3,8 +3,7 @@ import './index.pug'
 
 const component = () => {
   let element = document.createElement('div')
-  // element.innerHTML = _.join(['Hello', 'webpack'], ' ')
-  element.innerHTML = 'Hello from app.js'
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ')
   return element
 }
 

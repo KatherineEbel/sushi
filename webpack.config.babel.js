@@ -12,9 +12,12 @@ export default {
     path.join(__dirname, 'app/app.js')
   ],
   output: {
-    path: path.join(__dirname, '/public/'),
-    filename: '[name].js',
+    path: path.join(__dirname, 'public'),
     publicPath: '/'
+  },
+  stats: {
+    colors: true,
+    reasons: true
   },
   module: {
     rules: [
@@ -24,7 +27,7 @@ export default {
         loader: 'standard-loader',
         exclude: /node_modules/,
         options: {
-          error: false,
+          error: true,
           snazzy: true,
           parser: 'babel-eslint'
         }
@@ -36,6 +39,7 @@ export default {
       },
       {
         test: /\.pug$/,
+        exclude: /node_modules/,
         loader: 'pug'
       },
       {
@@ -62,9 +66,16 @@ export default {
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
-      _: 'underscore'
+      jQuery: 'jquery',
+      _: 'lodash'
     })
   ],
+  resolve: {
+    modules: [
+      path.join(__dirname, 'node_modules'),
+      path.join(__dirname, 'app')
+    ]
+  },
   resolveLoader: {
     moduleExtensions: ['-loader']
   }
