@@ -25,10 +25,10 @@ if (isDevelopment) {
 
   app.use(middleware)
   app.use(webpackHotMiddleware(compiler))
-  app.get('/', (req, res) => res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'public/index.html'))))
+  app.get('/', (req, res) => res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'public/index.pug'))))
 } else {
   app.use(express.static(path.join(__dirname, '/public')))
-  app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')))
+  app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.pug')))
 }
 
 app.listen(port, 'localhost', err => {

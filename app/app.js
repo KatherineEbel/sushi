@@ -1,11 +1,5 @@
+import './assets/views/index.pug'
 import './assets/styles/whitespace-reset-modified.css'
 import './assets/styles/main.styl'
-import './assets/views/index.html'
 
-const component = () => {
-  let element = document.createElement('div')
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ')
-  return element
-}
-
-document.body.appendChild(component())
+console.log('Running!')

@@ -1,0 +1,3 @@
+mixin image(fileName, altText)
+  - const filepath = require(`../images/${fileName}`)
+  img(src=filepath alt=altText)

@@ -47,12 +47,12 @@ if (isDevelopment) {
   app.use(middleware);
   app.use((0, _webpackHotMiddleware2.default)(compiler));
   app.get('/', function (req, res) {
-    return res.write(middleware.fileSystem.readFileSync(_path2.default.join(__dirname, 'public/index.html')));
+    return res.write(middleware.fileSystem.readFileSync(_path2.default.join(__dirname, 'public/index.pug')));
   });
 } else {
   app.use(_express2.default.static(_path2.default.join(__dirname, '/public')));
   app.get('/', function (req, res) {
-    return res.sendFile(_path2.default.join(__dirname, 'public/index.html'));
+    return res.sendFile(_path2.default.join(__dirname, 'public/index.pug'));
   });
 }
 

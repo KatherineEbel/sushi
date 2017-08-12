@@ -35,8 +35,11 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [ 'file']
+        test: /\.(png|jpg)$/,
+        loader: 'file',
+        options: {
+          name: '[path][name].[ext]'
+        }
       },
       {
         test:/\.js$/,
@@ -47,10 +50,6 @@ module.exports = {
         test: /\.pug$/,
         exclude: /node_modules/,
         loader: 'pug'
-      },
-      {
-        test: /\.(html)$/,
-        loader: 'html'
       },
       {
         test: /\.(css|styl)$/,
@@ -66,7 +65,7 @@ module.exports = {
     new ExtractTextPlugin('app.css'),
     new HtmlWebpackPlugin({
       title: 'Sushi',
-      template: 'app/assets/views/index.html'
+      template: 'app/assets/views/index.pug'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
@@ -84,7 +83,7 @@ module.exports = {
   resolve: {
     modules: [
       path.join(__dirname, 'node_modules'),
-      path.join(__dirname, 'app')
+      path.join(__dirname, 'app'),
     ]
   },
   resolveLoader: {
