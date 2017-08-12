@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "name": "Sashimi salad",
+    "image": "sashimi-salad.jpg",
+    "price": 12
+  },
+  {
+    "id": 2,
+    "name": "Chirashi sushi",
+    "image": "chirashi-sushi.jpg",
+    "price": 21
+  },
+  {
+    "id": 3,
+    "name": "Seaweed salad",
+    "image": "seaweed-salad.jpg",
+    "price": 17
+  },
+  {
+    "id": 4,
+    "name": "Edamame",
+    "image": "edamame.jpg",
+    "price": 4
+  },
+  {
+    "id": 5,
+    "name": "Miso soup",
+    "image": "miso-soup.jpg",
+    "price": 4
+  },
+  {
+    "id": 6,
+    "name": "Maguro",
+    "image": "marguro.jpg",
+    "price": 12.50
+  },
+  {
+    "id": 7,
+    "name": "Shake",
+    "image": "shake.jpg",
+    "price": 12
+  },
+  {
+    "id": 8,
+    "name": "Shiromi",
+    "image": "shiromi.jpg",
+    "price": 9.50
+  },
+  {
+    "id": 9,
+    "name": "Tekka maki",
+    "image": "tekka-maki.jpg",
+    "price": 6
+  },
+  {
+    "id": 10,
+    "name": "Hosmomaki",
+    "image": "hosomaki-mix.jpg",
+    "price": 17
+  },
+  {
+    "id": 11,
+    "name": "California rolls",
+    "image": "california-rolls.jpg",
+    "price": 7.75
+  },
+  {
+    "id": 12,
+    "name": "Seattle rolls",
+    "image": "seattle-rolls.jpg",
+    "price": 8.00
+  },
+  {
+    "id": 13,
+    "name": "Spicy Tuna rolls",
+    "image": "spicytuna-rolls.jpg",
+    "price": 6.00
+  },
+  {
+    "id": 14,
+    "name": "Ebi rolls",
+    "image": "ebi-rolls.jpg",
+    "price": 8.00
+  },
+  {
+    "id": 15,
+    "name": "Chicken Teriyaki",
+    "image": "chicken-teriyaki.jpg",
+    "price": 12.00
+  },
+  {
+    "id": 16,
+    "name": "Salmon Teriyaki",
+    "image": "salmon-teriyaki.jpg",
+    "price": 13.50
+  },
+  {
+    "id": 17,
+    "name": "Gohan",
+    "image": "gohan.jpg",
+    "price": 3.00
+  },
+  {
+    "id": 18,
+    "name": "Tori Katsu",
+    "image": "tori-katsu.jpg",
+    "price": 11.00
+  },
+  {
+    "id": 19,
+    "name": "Yaki Udon",
+    "image": "yaki-udon.jpg",
+    "price": 11.50
+  }
+]
