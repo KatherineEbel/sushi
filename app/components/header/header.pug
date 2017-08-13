@@ -1,5 +1,6 @@
+include ../../components/_mixins.pug
 a.logo(href="/")
-  img(src=`${require("../images/logo.png")}` alt="logo")
+  +image('logo.png', 'logo')
 .cart
   a(href="/")
     span.left Shopping Cart

@@ -65,7 +65,7 @@ module.exports = {
     new ExtractTextPlugin('app.css'),
     new HtmlWebpackPlugin({
       title: 'Sushi',
-      template: 'app/assets/views/index.pug'
+      template: 'app/components/index.pug'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
@@ -81,6 +81,10 @@ module.exports = {
     new CleanWebpackPlugin(['public'])
   ],
   resolve: {
+    alias: {
+      images: path.resolve(__dirname, 'app/assets/images')
+    },
+    extensions: ['.jpg', '.js', '.png'],
     modules: [
       path.join(__dirname, 'node_modules'),
       path.join(__dirname, 'app'),

@@ -1,0 +1,51 @@
+body
+  > header
+    width 1000px
+    border-bottom 1px solid #787878
+    overflow hidden
+    margin 0 auto
+    padding 50px 0
+    .logo
+      float left
+      cursor pointer
+    .cart
+      width 220px
+      float right
+      span
+        display inline-block
+        box-sizing border-box
+        font-size 10px
+        letter-spacing 1px
+      span.left
+        width 50%
+        padding 8px 5px
+        color #ff3170
+        background #000
+        text-align center
+        text-transform uppercase
+      span.right
+        width 60%
+        color #fff
+        position relative
+        padding 7px 15px 7px 10px
+        background linear-gradient(to bottom, #d60041 0%, #a90040 100%)
+        text-transform uppercase
+      span.count
+        font-size 12px
+      span.right:before
+        content ''
+        display block
+        width 0
+        height 0
+        position absolute
+        left 0
+        top 0
+        border-top 14px solid #000
+        border-right 14px solid transparent
+        border-bottom 14px solid transparent
+        border-left 14px solid #000
+      span.right:hover
+        background linear-gradient(to bottom #a90040 0% #d60040 0%, #d60041 100%)
+      span.right
+        width 50%
+        text-align center

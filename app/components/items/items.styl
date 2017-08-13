@@ -1,0 +1,66 @@
+#items
+  li:nth-child(5n) article
+    box-shadow none
+  li
+    position relative
+    height 340px
+    margin 20px 0 0 0
+    background #fff
+    box-sizing border-box
+    article
+      position absolute
+      box-shadow 2px 0px 2px -2px #888
+      z-index 10
+    header
+      position relative
+      margin 0
+      padding 0
+      border none
+      cursor pointer
+      h2
+        margin 25px 0 10px 0
+        text-align center
+        text-transform capitalize
+        font-weight normal
+        font-size 20px
+        letter-spacing 1px
+        color #ab7829
+    p
+      margin 0 0 20px 0
+      text-align center
+      letter-spacing 1px
+      color #b0b0b0
+    header:hover h2
+      color #000
+    header:hover:after
+      position absolute
+      box-sizing border-box
+      height 200px
+      width 200px
+      padding 70px
+      top 0
+      left 0
+      background rgba(0,0,0,0.6)
+      content url("../images/arrow-right.png")
+      text-align center
+    .add_cart
+      display block
+      padding 13px 0
+      border-top 1px dotted #b0b0b0
+      text-align center
+      text-transform uppercase
+      font-size 12px
+      cursor pointer
+      color #d60041
+
+    .add_cart:before
+      content "+"
+      margin 0 5px 0 0
+      display inline-block
+      font-size 14px
+      font-weight bold
+
+    .add_cart:hover
+      color #fff
+      background #d60041
+      transition color 0.75s, background 0.75s
