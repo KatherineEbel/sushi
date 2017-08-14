@@ -1,6 +1,12 @@
 import Mn from 'backbone.marionette'
-import template from 'item.pug'
+import template from './item.pug'
+import Item from './Item.js'
 
 export default Mn.View.extend({
-  template: template
+  tagName: 'li',
+  model: Item,
+  template: template,
+  onRender () {
+    console.log(this.model.attributes)
+  }
 })

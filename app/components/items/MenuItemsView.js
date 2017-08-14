@@ -1,12 +1,13 @@
 import Mn from 'backbone.marionette'
-import template from 'items.pug'
 import menuJSON from '../../data/menu.json'
-import MenuItem from '../item/Item.js'
+import MenuItemView from '../item/ItemView.js'
 import Items from '../items/Items.js'
+import './items.styl'
 
 export default Mn.CollectionView.extend({
-  childView: MenuItem,
-  regions: '#items',
+  id: 'items',
+  tagName: 'ul',
+  childView: MenuItemView,
   initialize () {
     this.collection = new Items(menuJSON)
   }

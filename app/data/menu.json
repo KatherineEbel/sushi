@@ -77,7 +77,7 @@
   {
     "id": 6,
     "name": "Maguro",
-    "image": "marguro.jpg",
+    "image": "maguro.jpg",
     "price": 12.50,
     "description": "Tuna pieces",
     "nutritionalInformation": {
@@ -123,7 +123,7 @@
     "name": "Tekka maki",
     "image": "tekka-maki.jpg",
     "price": 6.00,
-    "count": 6
+    "count": 6,
     "description": "Tuna roll with wasabi.",
     "nutritionalInformation": {
       "protein": 0.9559,
@@ -185,7 +185,7 @@
     "name": "Spicy Tuna rolls",
     "image": "spicytuna-rolls.jpg",
     "price": 6.00,
-    "pieces": 6
+    "pieces": 6,
     "description": "Spicy tuna, spring onion and avocado.",
     "nutritionalInformation": {
       "protein": 1.0003,
@@ -262,7 +262,7 @@
     "name": "Tori Katsu",
     "image": "tori-katsu.jpg",
     "price": 11.00,
-    "description": "Pan-fried chicken breast with yasai salad".,
+    "description": "Pan-fried chicken breast with yasai salad.",
     "nutritionalInformation": {
       "protein": 1.0267,
       "fat": 2.2143,

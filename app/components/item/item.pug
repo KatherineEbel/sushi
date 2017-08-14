@@ -1,9 +1,10 @@
-li
-  article
-    header
-      figure
-        +image('sashimi-salad.jpg', "menu-item")
-      h2.name Sashimi salad
-    p.price $12.00
-    footer
-      a.add_cart(href="#") Add to cart
+include ../_mixins.pug
+
+article
+  header
+    figure
+      +image(image, "menu-item")
+    h2.name= name
+  p.price= $price
+  footer
+    a.add_cart(href="#") Add to cart
