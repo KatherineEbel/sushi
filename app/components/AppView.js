@@ -14,6 +14,6 @@ export default Mn.View.extend({
   },
   onRender (view, data) {
     this.showChildView('header', new HeaderView())
-    this.showChildView('main', new MainView(data))
+    this.showChildView('main', new MainView())
   }
 })

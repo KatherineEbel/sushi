@@ -6,6 +6,6 @@ export default Mn.Application.extend({
   region: 'body',
   onStart (app, data) {
     Bb.history.start()
-    this.showView(new AppView(data))
+    this.showView(new AppView())
   }
 })
