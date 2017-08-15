@@ -49,7 +49,10 @@ module.exports = {
       {
         test: /\.pug$/,
         exclude: /node_modules/,
-        loader: 'pug'
+        loader: 'pug',
+        options: {
+          pretty: true
+        }
       },
       {
         test: /\.(css|styl)$/,
@@ -82,9 +85,9 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      images: path.resolve(__dirname, 'app/assets/images')
+      common: path.resolve(__dirname, 'app/assets')
     },
-    extensions: ['.jpg', '.js', '.png'],
+    extensions: ['.jpg', '.js', '.png', '.pug'],
     modules: [
       path.join(__dirname, 'node_modules'),
       path.join(__dirname, 'app'),

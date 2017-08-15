@@ -12,9 +12,8 @@ export default Mn.View.extend({
     main: 'main',
     footer: 'footer'
   },
-  onRender () {
-    console.log(this.el)
+  onRender (view, data) {
     this.showChildView('header', new HeaderView())
-    this.showChildView('main', new MainView())
+    this.showChildView('main', new MainView(data))
   }
 })

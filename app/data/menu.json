@@ -1,5 +1,5 @@
-[
-  {
+{
+  "menuItems": [{
     "id": 1,
     "name": "Sashimi salad",
     "image": "sashimi-salad.jpg",
@@ -286,5 +286,5 @@
       "energyKcal": 1.7945,
       "sugar": 0.1798
     }
-  }
-]
+  }]
+}

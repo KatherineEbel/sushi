@@ -1,9 +1,11 @@
-import Marionette from 'backbone.marionette'
+import Mn from 'backbone.marionette'
+import Bb from 'backbone'
 import AppView from './AppView.js'
 
-export default Marionette.Application.extend({
+export default Mn.Application.extend({
   region: 'body',
-  onStart () {
-    this.showView(new AppView())
+  onStart (app, data) {
+    Bb.history.start()
+    this.showView(new AppView(data))
   }
 })

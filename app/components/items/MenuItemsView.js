@@ -9,6 +9,6 @@ export default Mn.CollectionView.extend({
   tagName: 'ul',
   childView: MenuItemView,
   initialize () {
-    this.collection = new Items(menuJSON)
+    this.collection = new Items(menuJSON.menuItems)
   }
 })

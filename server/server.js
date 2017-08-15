@@ -1,9 +1,12 @@
 import path from 'path'
 import express from 'express'
 import webpack from 'webpack'
+import logger from 'morgan'
+import bodyParser from 'body-parser'
 import webpackMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-import config from './webpack.config.js'
+import config from '../webpack.config.js'
+import router from './routes/all.js'
 
 const isDevelopment = process.env.NODE_ENV != 'production'
 const port = isDevelopment ? 3000: process.env.PORT
@@ -31,6 +34,25 @@ if (isDevelopment) {
   app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.pug')))
 }
 
+app.use(logger('dev'))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use('/api', router)
+
+app.use((req, res, next) => {
+  let err = new Error('Not Found')
+  err.status = 404
+  next(err)
+})
+
+app.use((err, req, res, next) => {
+  res.locals.message = err.message
+  res.locals.error = req.app.get('env') === 'development' ? err : {}
+
+  res.status(err.status || 500)
+})
+
 app.listen(port, 'localhost', err => {
   if (err) {
     console.log(err)
@@ -38,3 +60,5 @@ app.listen(port, 'localhost', err => {
 
   console.info(`===> 🌎 Listening on port ${port}. Open up http://localhost:${port}/ in your browser.`)
 })
+
+export default app
