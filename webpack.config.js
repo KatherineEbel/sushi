@@ -49,10 +49,7 @@ module.exports = {
       {
         test: /\.pug$/,
         exclude: /node_modules/,
-        loader: 'pug',
-        options: {
-          pretty: true
-        }
+        loader: 'babel?presets[]=es2015!pug'
       },
       {
         test: /\.(css|styl)$/,
