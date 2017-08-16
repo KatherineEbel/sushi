@@ -1,17 +1,20 @@
 import Mn from 'backbone.marionette'
 import template from './main.pug'
-// import CartView from '../cart/CartView.js'
+import CartView from '../cart/CartView.js'
 import MenuItemsView from '../items/MenuItemsView.js'
 import './main.styl'
 
 export default Mn.View.extend({
   template: template,
   regions: {
-    cart: '#cart',
+    cart: {
+      el: '#cart',
+      replaceElement: true
+    },
     content: '#content'
   },
   onRender () {
-    // this.showChildView('cart', new CartView)
+    this.showChildView('cart', new CartView())
     this.showChildView('content', new MenuItemsView())
   }
 })

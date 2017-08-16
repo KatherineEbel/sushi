@@ -2,6 +2,3 @@ mixin image(fileName, altText)
   - const filepath = require(`common/images/${fileName}`)
   img(src=filepath alt=altText)
 
-mixin priceFormatted(price)
-  - price = parseFloat(price).toFixed(2)
-  p.price $#{price}
