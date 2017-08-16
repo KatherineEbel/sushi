@@ -1,0 +1,93 @@
+#item_details
+  position relative
+  width 1000px
+  min-height 590px
+  margin 20px 0 0 0
+  background url("../images/sushi-preview.png")
+  > div
+    position absolute
+    height 200px
+    top 50%
+    margin -100px 0 0 0
+    font-size 0
+    > *
+      box-sizing border-box
+      display inline-block
+      height inherit
+      font-size 12px
+      vertical-align middle
+    .nav
+      width 100px
+      padding 80px 0 0 0
+      background #000
+      text-align center
+      cursor pointer
+    .nav:hover
+      color #000
+      background #d60041
+      transition color 0.35s, background 0.35s
+    article
+    aside
+      background #fff
+    article
+      width 400px
+      h1
+        margin 25px 0 5px 25px
+        font-size 35px
+        font-weight normal
+      p
+        margin 0 0 0 25px
+      footer
+        margin 45px 0 0 0
+        border-top 1px dotted #b0b0b0
+        > *
+          display inline-block
+        h2
+          margin 20px 0 0 25px
+          font-size 30px
+          font-weight normal
+          color #787878
+
+        .add_cart
+          float right
+          margin 20px 25px 0 0
+          color #fff
+          position relative
+          padding 7px 15px 7px 10px
+          background linear-gradient(to bottom, #d60041 0%, #a90040 100%)
+          text-transform uppercase
+
+        .add_cart:hover
+          background linear-gradient(to bottom, #a90040 0%, #d60041 100%)
+
+        .add_cart:before
+          content "+"
+          margin 0 5px 0 0
+          display inline-block
+          font-size 14px
+          font-weight bold
+
+      .close
+        float right
+        margin 10px 20px 0 0
+        transform rotate(45deg)
+        font-size 25px
+        color #000
+
+    aside
+      width 200px
+      padding 0 20px
+      box-shadow -1px 0px 2px 0px #aaa
+      h3
+        margin 30px 0 15px 0
+        font-size 13px
+        text-align center
+        letter-spacing 0.5px
+      table
+        width 100%
+        tr td
+          color #787878
+          + td
+            text-align right
+            color #000
+

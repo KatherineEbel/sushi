@@ -1,0 +1,36 @@
+div
+  .nav.prev
+    +image('nav-prev.png', 'prev')
+  figure
+    +image('sashimi-salad.jpg', 'selected-item')
+  article
+    a.close(href="/")+
+    h1 Sashimi salad
+    p Organic greens topped with fresh sashimi, wasabi soy vinaigrette.
+    footer
+      h2 $12.00
+      a.add_cart(href="#")Add to cart
+  aside
+    h3 Nutritional Information
+    table
+      tbody
+        tr
+          td Protein
+          td 2.9156
+        tr
+          td Fat (total)
+          td 2.4396
+        tr
+          td Carbohydrate
+          td 3.8071
+        tr
+          td Energy (kj)
+          td 17.5775
+        tr
+          td Energy (kcal)
+          td 4.2011
+        tr
+          td Sugar
+          td 0.3738
+  .nav.next
+    +image('nav-next.png', 'next')

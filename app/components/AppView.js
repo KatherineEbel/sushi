@@ -1,10 +1,10 @@
-import Mn from 'backbone.marionette'
+import { View } from 'backbone.marionette'
 import template from './app.pug'
-import HeaderView from './header/HeaderView.js'
+import HeaderView from './header/HeaderView'
 import './footer/footer.styl'
-import MainView from './main/MainView.js'
+import MainView from './main/base/MainView'
 
-export default Mn.View.extend({
+export default View.extend({
   tagName: 'body',
   template: template,
   regions: {
@@ -12,8 +12,8 @@ export default Mn.View.extend({
     main: 'main',
     footer: 'footer'
   },
-  onRender (view, data) {
-    this.showChildView('header', new HeaderView())
+  onRender () {
     this.showChildView('main', new MainView())
+    this.showChildView('header', new HeaderView())
   }
 })

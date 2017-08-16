@@ -1,7 +1,7 @@
-import './components/index.pug'
+import 'common/views/index.pug'
 import './assets/styles/main.styl'
 import App from 'components/App'
-import MenuItemsCollection from 'components/items/Items.js'
+import MenuItemsCollection from 'components/main/menu/Items'
 import Radio from 'backbone.radio'
 Radio.DEBUG = true
 const resourceChannel = Radio.channel('resourceChannel')

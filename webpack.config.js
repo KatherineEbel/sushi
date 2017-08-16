@@ -65,7 +65,7 @@ module.exports = {
     new ExtractTextPlugin('app.css'),
     new HtmlWebpackPlugin({
       title: 'Sushi',
-      template: 'app/components/index.pug'
+      template: 'app/assets/views/index.pug'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

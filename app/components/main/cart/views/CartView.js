@@ -1,10 +1,10 @@
-import Mn from 'backbone.marionette'
+import { View } from 'backbone.marionette'
 import CartItemCollectionView from '../cartItem/CartItemCollectionView.js'
 import CartActionView from '../cartActions/CartActionsView.js'
-import template from './cart.pug'
-import './cart.styl'
+import template from '../templates/cart'
+import '../styles/cart.styl'
 
-export default Mn.View.extend({
+export default View.extend({
   id: 'cart',
   template: template,
   regions: {
