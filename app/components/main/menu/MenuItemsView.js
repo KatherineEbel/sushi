@@ -24,7 +24,7 @@ export default CollectionView.extend({
     'cart:add': 'itemSelected'
   },
   requestDetails (menuItemView) {
-    uiChannel.trigger('show:menuItem', JSON.stringify(menuItemView.model))
+    uiChannel.trigger('show:menuItem', menuItemView.model)
   },
   itemSelected (menuItemView) {
     console.log(`Item added: ${menuItemView.model.get('id')}`)

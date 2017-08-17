@@ -2,7 +2,7 @@ import { View } from 'backbone.marionette'
 import template from './main.pug'
 import CartView from '../cart/views/CartView'
 import MenuItemsView from '../menu/MenuItemsView'
-import Item from '../menuItem/Item.js'
+// import Item from '../menuItem/Item.js'
 import ItemDetailView from '../menuItemView/ItemDetailView.js'
 import './main.styl'
 
@@ -25,10 +25,8 @@ export default View.extend({
   showMenu () {
     this.showChildView('content', new MenuItemsView())
   },
-  showMenuItem (item) {
-    let itemView = new ItemDetailView({model: new Item(item)})
-    console.log(itemView)
-    console.log(itemView.model.get('id'))
+  showMenuItem (model) {
+    let itemView = new ItemDetailView({model: model})
     this.showChildView('content', itemView)
   }
 })
