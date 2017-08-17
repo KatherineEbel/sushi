@@ -22,6 +22,5 @@ export default Mn.CollectionView.extend({
       }
     }
     this.collection = new CartItemCollection(cartItem)
-    console.log('CartView init!!!')
   }
 })

@@ -5,7 +5,7 @@ import './items.styl'
 import Radio from 'backbone.radio'
 
 const resourceChannel = Radio.channel('resourceChannel')
-// const uiChannel = Radio.channel('uiChannel')
+const uiChannel = Radio.channel('uiChannel')
 
 export default CollectionView.extend({
   id: 'items',
@@ -24,7 +24,7 @@ export default CollectionView.extend({
     'cart:add': 'itemSelected'
   },
   requestDetails (menuItemView) {
-    console.log(`Request details for: ${JSON.stringify(menuItemView.model)}`)
+    uiChannel.trigger('show:menuItem', JSON.stringify(menuItemView.model))
   },
   itemSelected (menuItemView) {
     console.log(`Item added: ${menuItemView.model.get('id')}`)

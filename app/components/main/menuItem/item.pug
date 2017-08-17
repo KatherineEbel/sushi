@@ -1,7 +1,7 @@
 include ~common/views/_mixins.pug
 
 article
-  header
+  header: a(href=`menuItems/${id}`)
     figure
       +image(image, "menu-item")
     h2.name= name

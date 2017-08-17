@@ -28,10 +28,16 @@ if (isDevelopment) {
 
   app.use(middleware)
   app.use(webpackHotMiddleware(compiler))
-  app.get('/', (req, res) => res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'public/index.pug'))))
+  app.get('/', (req, res, next) => {
+    let shouldWriteIndex = ((req.method === 'GET' || req.method === 'HEAD') && req.accepts('html'))
+    shouldWriteIndex ? res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'public/index.pug'))) : next()
+  })
 } else {
   app.use(express.static(path.join(__dirname, '/public')))
-  app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.pug')))
+  app.get('/', (req, res, next) => {
+    let shouldWriteIndex = ((req.method === 'GET' || req.method === 'HEAD') && req.accepts('html'))
+    shouldWriteIndex ? res.sendFile(path.join(__dirname, 'public/index.pug')) : next()
+  })
 }
 
 app.use(logger('dev'))

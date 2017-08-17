@@ -1,36 +1,38 @@
-div
+include ~common/views/_mixins.pug
+
+section
   .nav.prev
     +image('nav-prev.png', 'prev')
   figure
-    +image('sashimi-salad.jpg', 'selected-item')
+    +image(image, 'selected-item')
   article
-    a.close(href="/")+
-    h1 Sashimi salad
-    p Organic greens topped with fresh sashimi, wasabi soy vinaigrette.
+    a.close(href="/") +
+    h1= name
+    p= description
     footer
-      h2 $12.00
-      a.add_cart(href="#")Add to cart
+      h2= price
+      a.add_cart(href="#") Add to cart
   aside
     h3 Nutritional Information
     table
       tbody
         tr
           td Protein
-          td 2.9156
+          td= nutritionalInformation.protein
         tr
           td Fat (total)
-          td 2.4396
+          td= nutritionalInformation.fat
         tr
           td Carbohydrate
-          td 3.8071
+          td= nutritionalInformation.carbohydrate
         tr
           td Energy (kj)
-          td 17.5775
+          td= nutritionalInformation.energyKj
         tr
           td Energy (kcal)
-          td 4.2011
+          td- nutritionalInformation.energyKcal
         tr
           td Sugar
-          td 0.3738
+          td= nutritionalInformation.sugar
   .nav.next
     +image('nav-next.png', 'next')

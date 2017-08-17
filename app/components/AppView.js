@@ -13,7 +13,7 @@ export default View.extend({
     footer: 'footer'
   },
   onRender () {
-    this.showChildView('main', new MainView())
     this.showChildView('header', new HeaderView())
+    this.showChildView('main', new MainView())
   }
 })

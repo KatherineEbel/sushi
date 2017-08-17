@@ -62,13 +62,15 @@ if (isDevelopment) {
 
   app.use(middleware);
   app.use((0, _webpackHotMiddleware2.default)(compiler));
-  app.get('/', function (req, res) {
-    return res.write(middleware.fileSystem.readFileSync(_path2.default.join(__dirname, 'public/index.pug')));
+  app.get('/', function (req, res, next) {
+    var shouldWriteIndex = (req.method === 'GET' || req.method === 'HEAD') && req.accepts('html');
+    shouldWriteIndex ? res.write(middleware.fileSystem.readFileSync(_path2.default.join(__dirname, 'public/index.pug'))) : next();
   });
 } else {
   app.use(_express2.default.static(_path2.default.join(__dirname, '/public')));
-  app.get('/', function (req, res) {
-    return res.sendFile(_path2.default.join(__dirname, 'public/index.pug'));
+  app.get('/', function (req, res, next) {
+    var shouldWriteIndex = (req.method === 'GET' || req.method === 'HEAD') && req.accepts('html');
+    shouldWriteIndex ? res.sendFile(_path2.default.join(__dirname, 'public/index.pug')) : next();
   });
 }
 
