@@ -19,7 +19,6 @@ export default Mn.View.extend({
     this.model.set({'isBeingViewed': !isBeingViewed})
   },
   onAddCartClicked () {
-    console.log('Item clicked')
     let incremented = this.model.get('count') + 1
     this.model.set({'inCart': true, 'count': incremented})
   }

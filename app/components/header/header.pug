@@ -1,6 +1,6 @@
 include ~common/views/_mixins.pug
 
-- const countTotal = `${itemCount} items${itemCount === 1 ? 's' : ''}`
+- const countTotal = `${itemCount} item${itemCount === 1 ? '' : 's'}`
 a.logo(href="/")
   +image('logo.png', 'logo')
 .cart

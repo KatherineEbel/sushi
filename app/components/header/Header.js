@@ -6,6 +6,5 @@ export default Bb.Model.extend({
   },
   updateTotal () {
     this.set({ itemCount: this.get('itemCount') + 1 })
-    console.log(this.get('itemCount'))
   }
 })
