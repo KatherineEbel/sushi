@@ -18,6 +18,7 @@ export default View.extend({
   },
   initialize () {
     this.listenTo(Radio.channel('uiChannel'), 'show:menuItem', this.onShowMenuItem)
+    this.listenTo(Radio.channel('uiChannel'), 'cart:empty', () => this.getRegion('cart').empty())
     this.listenTo(Radio.channel('uiChannel'), 'item:added', (model) => {
       this.triggerMethod('showCartView', model)
     })

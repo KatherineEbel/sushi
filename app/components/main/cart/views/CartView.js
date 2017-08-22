@@ -18,11 +18,21 @@ export default View.extend({
       replaceElement: true
     }
   },
+  childViewEvents: {
+    'notifyEmptyCart': 'emptyCart',
+    'notifyCheckout': 'getCheckout'
+  },
   initialize () {
     this.collection = new CartItemCollection()
     this.listenTo(Radio.channel('uiChannel'), 'item:added', (model) => {
       this.collection.add(model)
     })
+  },
+  emptyCart () {
+    Radio.channel('uiChannel').trigger('cart:empty')
+  },
+  getCheckout () {
+    console.log('Ready to checkout!')
   },
   onRender () {
     this.showCartActionView()
