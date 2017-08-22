@@ -20,13 +20,16 @@ export default View.extend({
   },
   initialize () {
     this.collection = new CartItemCollection()
+    this.listenTo(Radio.channel('uiChannel'), 'item:added', (model) => {
+      this.collection.add(model)
+    })
   },
   onRender () {
-    this.showCartItemCollectionView({collection: this.collection})
+    this.showCartItemCollectionView(this.collection)
     this.showCartActionView()
   },
-  showCartItemCollectionView () {
-    this.showChildView('cartItems', new CartItemCollectionView())
+  showCartItemCollectionView (collection) {
+    this.showChildView('cartItems', new CartItemCollectionView({ collection: collection }))
   },
   showCartActionView () {
     this.showChildView('cartActions', new CartActionView())

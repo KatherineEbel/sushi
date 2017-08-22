@@ -18,6 +18,9 @@ export default View.extend({
   },
   initialize () {
     this.listenTo(Radio.channel('uiChannel'), 'show:menuItem', this.onShowMenuItem)
+    this.listenTo(Radio.channel('uiChannel'), 'item:added', (model) => {
+      this.triggerMethod('showCartView', model)
+    })
     this.collection = new MenuItems()
     let menuDataDeferred = Radio.channel('resourceChannel').request('menuItems')
     menuDataDeferred.done((collection) => {
@@ -37,8 +40,15 @@ export default View.extend({
     this.showChildView('content', itemView)
     Bb.history.navigate(`menu/${model.id}`)
   },
-  onShowCartView () {
-    this.showChildView('cart', new CartView())
+  onShowCartView (model) {
+    if (!this.getRegion('cart').hasView()) {
+      const cartView = new CartView()
+      cartView.collection.add(model)
+      console.log(cartView.collection)
+      this.showChildView('cart', cartView)
+    } else {
+      console.log('CartView already displayed')
+    }
   },
   childViewEvents: {
     'getPrev:id': 'renderPrevItem',

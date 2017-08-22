@@ -19,7 +19,6 @@ export default CollectionView.extend({
     uiChannel.trigger('show:menuItem', menuItemView.model)
   },
   itemSelected (menuItemView) {
-    uiChannel.trigger('item:added')
-    // uiChannel.trigger('addCart:item', menuItemView.model)
+    uiChannel.trigger('item:added', menuItemView.model)
   }
 })
