@@ -42,12 +42,10 @@ export default View.extend({
   },
   onShowCartView (model) {
     if (!this.getRegion('cart').hasView()) {
+      Radio.channel('uiChannel').reply('first:item:added', model)
       const cartView = new CartView()
       cartView.collection.add(model)
-      console.log(cartView.collection)
       this.showChildView('cart', cartView)
-    } else {
-      console.log('CartView already displayed')
     }
   },
   childViewEvents: {

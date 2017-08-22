@@ -9,8 +9,13 @@ export default Mn.View.extend({
   modelEvents: {
     'change:count': 'handleCountChange'
   },
+  ui: {
+    'price': '.price'
+  },
   handleCountChange (model) {
-    this.render()
-    console.log('Model count changed to: ' + model.get('count'))
+    let price = this.getUI('price')
+    let count = this.model.get('count')
+    let itemPrice = this.model.get('price')
+    price.text(`${count} x ${parseFloat(itemPrice).toFixed(2)}`)
   }
 })

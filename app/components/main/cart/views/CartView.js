@@ -25,8 +25,8 @@ export default View.extend({
     })
   },
   onRender () {
-    this.showCartItemCollectionView(this.collection)
     this.showCartActionView()
+    this.showCartItemCollectionView(this.collection)
   },
   showCartItemCollectionView (collection) {
     this.showChildView('cartItems', new CartItemCollectionView({ collection: collection }))
