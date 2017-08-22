@@ -1,0 +1,19 @@
+.img_top
+section
+  h1 Order Details
+  table
+    thead
+      tr
+        th Item
+        th
+        th Quantity
+        th Price
+    tbody
+      //- order items go here
+  p Total:
+    span.total $12.00
+  footer
+    a(href="/") Cancel order
+    form(action="/" method="post")
+      input(type="submit" value="ORDER NOW!")
+.img_bottom

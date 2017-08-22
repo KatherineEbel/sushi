@@ -8,6 +8,7 @@ import ItemDetailView from '../menuItemView/ItemDetailView.js'
 import './main.styl'
 
 export default View.extend({
+  channelName: 'uiChannel',
   template: template,
   regions: {
     cart: {
@@ -16,12 +17,27 @@ export default View.extend({
     },
     content: '#content'
   },
+  radioEvents: {
+    'show:menuItem': 'onShowMenuItem',
+    'cart:empty': 'emptyCart',
+    'item:added': 'onShowCartView'
+  },
+  childViewEvents: {
+    'getPrev:id': 'renderPrevItem',
+    'getNext:id': 'renderNextItem',
+    'addCart:id': 'addCartItem',
+    'goBack': 'onShowMenu'
+
+  },
+  emptyCart () {
+    this.getRegion('cart').empty()
+  },
   initialize () {
-    this.listenTo(Radio.channel('uiChannel'), 'show:menuItem', this.onShowMenuItem)
-    this.listenTo(Radio.channel('uiChannel'), 'cart:empty', () => this.getRegion('cart').empty())
-    this.listenTo(Radio.channel('uiChannel'), 'item:added', (model) => {
-      this.triggerMethod('showCartView', model)
-    })
+    // this.listenTo(Radio.channel('uiChannel'), 'show:menuItem', this.onShowMenuItem)
+    // this.listenTo(Radio.channel('uiChannel'), 'cart:empty', () => this.getRegion('cart').empty())
+    // this.listenTo(Radio.channel('uiChannel'), 'item:added', (model) => {
+    //   this.triggerMethod('showCartView', model)
+    // })
     this.collection = new MenuItems()
     let menuDataDeferred = Radio.channel('resourceChannel').request('menuItems')
     menuDataDeferred.done((collection) => {
@@ -48,13 +64,6 @@ export default View.extend({
       cartView.collection.add(model)
       this.showChildView('cart', cartView)
     }
-  },
-  childViewEvents: {
-    'getPrev:id': 'renderPrevItem',
-    'getNext:id': 'renderNextItem',
-    'addCart:id': 'addCartItem',
-    'goBack': 'onShowMenu'
-
   },
   renderPrevItem (id) {
     this.triggerMethod('showMenuItem', this.collection.get(this.collection.pagePrev()))
