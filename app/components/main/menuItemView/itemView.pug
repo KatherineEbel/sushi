@@ -6,11 +6,11 @@ section
   figure
     +image(image, 'selected-item')
   article
-    a.close(href="/") +
+    a.close(href="#") +
     h1= name
     p= description
     footer
-      h2= price
+      h2 $#{parseFloat(price).toFixed(2)}
       a.add_cart(href="#") Add to cart
   aside
     h3 Nutritional Information

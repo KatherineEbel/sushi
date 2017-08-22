@@ -6,5 +6,17 @@ import './itemDetails.styl'
 export default View.extend({
   id: 'item_details',
   template: template,
-  model: Item
+  model: Item,
+  ui: {
+    prev: '.nav.prev',
+    next: '.nav.next',
+    addCart: 'a.add_cart',
+    close: 'a.close'
+  },
+  triggers: {
+    'click @ui.prev': 'getPrev:id',
+    'click @ui.next': 'getNext:id',
+    'click @ui.addCart': 'addCart:id',
+    'click @ui.close': 'goBack'
+  }
 })

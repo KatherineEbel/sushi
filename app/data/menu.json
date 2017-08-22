@@ -5,6 +5,7 @@
     "image": "sashimi-salad.jpg",
     "price": 12.00,
     "description": "Organic greens topped with fresh sashimi, wasabi soy vinaigrette.",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 2.9156,
       "fat": 2.4396,
@@ -20,6 +21,7 @@
     "image": "chirashi-sushi.jpg",
     "price": 21,
     "description": "Sushi bar variety with sushi rice.",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 2.3138,
       "fat": 0.6041,
@@ -35,6 +37,7 @@
     "image": "seaweed-salad.jpg",
     "price": 17,
     "description": "A nice seaweed salad",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 0.229,
       "fat": 2.2852,
@@ -50,6 +53,7 @@
     "image": "edamame.jpg",
     "price": 4,
     "description": "Boiled soy beans with salt",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 0.7436,
       "fat": 1.9771,
@@ -65,6 +69,7 @@
     "image": "miso-soup.jpg",
     "price": 4,
     "description": "Soy bean soup with Wacame seaweed, tofu and spring onion",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 2.7642,
       "fat": 2.1552,
@@ -80,6 +85,7 @@
     "image": "maguro.jpg",
     "price": 12.50,
     "description": "Tuna pieces",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 2.2293,
       "fat": 0.7329,
@@ -94,6 +100,7 @@
     "name": "Shake",
     "image": "shake.jpg",
     "price": 12,
+    "count": 0,
     "nutritionalInformation": {
       "protein": 1.4804,
       "fat": 1.4739,
@@ -108,6 +115,7 @@
     "name": "Shiromi",
     "image": "shiromi.jpg",
     "price": 9.50,
+    "count": 0,
     "description": "White fish pieces.",
     "nutritionalInformation": {
       "protein": 0.2814,
@@ -123,8 +131,9 @@
     "name": "Tekka maki",
     "image": "tekka-maki.jpg",
     "price": 6.00,
-    "count": 6,
+    "pieces": 6,
     "description": "Tuna roll with wasabi.",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 0.9559,
       "fat": 1.6395,
@@ -139,7 +148,8 @@
     "name": "Hosmomaki",
     "image": "hosomaki-mix.jpg",
     "price": 17.00,
-    "count": 18,
+    "pieces": 18,
+    "count": 0,
     "nutritionalInformation": {
       "protein": 2.683,
       "fat": 2.858,
@@ -154,8 +164,9 @@
     "name": "California rolls",
     "image": "california-rolls.jpg",
     "price": 7.75,
-    "count": 8,
+    "pieces": 8,
     "description": "Crab sticks, avocado and cucumber.",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 0.848,
       "fat": 0.1205,
@@ -171,6 +182,7 @@
     "image": "seattle-rolls.jpg",
     "price": 8.00,
     "description": "Smoked salmon. Cucumber. Cream Cheese.",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 2.2802,
       "fat": 2.309,
@@ -186,6 +198,7 @@
     "image": "spicytuna-rolls.jpg",
     "price": 6.00,
     "pieces": 6,
+    "count": 0,
     "description": "Spicy tuna, spring onion and avocado.",
     "nutritionalInformation": {
       "protein": 1.0003,
@@ -202,6 +215,7 @@
     "image": "ebi-rolls.jpg",
     "price": 8.00,
     "pieces": 8,
+    "count": 0,
     "description": "King prawns, avocado and asparagus.",
     "nutritionalInformation": {
       "protein": 2.826,
@@ -218,6 +232,7 @@
     "image": "chicken-teriyaki.jpg",
     "price": 12.00,
     "description": "Sautéed chicken with teriyaki sauce.",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 2.2375,
       "fat": 2.6375,
@@ -233,6 +248,7 @@
     "image": "salmon-teriyaki.jpg",
     "price": 13.50,
     "description": "Sautéed salmon with teriyaki sauce.",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 2.5748,
       "fat": 0.0234,
@@ -248,6 +264,7 @@
     "image": "gohan.jpg",
     "price": 3.00,
     "description": "Steamed rice.",
+    "count": 0,
     "nutritionalInformation": {
       "protein": 2.4622,
       "fat": 2.672,
@@ -262,6 +279,7 @@
     "name": "Tori Katsu",
     "image": "tori-katsu.jpg",
     "price": 11.00,
+    "count": 0,
     "description": "Pan-fried chicken breast with yasai salad.",
     "nutritionalInformation": {
       "protein": 1.0267,
@@ -277,6 +295,7 @@
     "name": "Yaki Udon",
     "image": "yaki-udon.jpg",
     "price": 11.50,
+    "count": 0,
     "description": "Udon noodles with chicken, king prawns and vegetables.",
     "nutritionalInformation": {
       "protein": 1.7697,

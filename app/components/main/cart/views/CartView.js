@@ -1,5 +1,6 @@
 import { View } from 'backbone.marionette'
 import CartItemCollectionView from '../cartItem/CartItemCollectionView.js'
+import CartItemCollection from '../cartItem/CartItemCollection'
 import CartActionView from '../cartActions/CartActionsView.js'
 import template from '../templates/cart'
 import '../styles/cart.styl'
@@ -17,8 +18,17 @@ export default View.extend({
       replaceElement: true
     }
   },
+  initialize () {
+    this.collection = new CartItemCollection()
+  },
   onRender () {
+    this.showCartItemCollectionView({collection: this.collection})
+    this.showCartActionView()
+  },
+  showCartItemCollectionView () {
     this.showChildView('cartItems', new CartItemCollectionView())
+  },
+  showCartActionView () {
     this.showChildView('cartActions', new CartActionView())
   }
 })

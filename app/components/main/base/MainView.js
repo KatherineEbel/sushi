@@ -1,8 +1,9 @@
 import { View } from 'backbone.marionette'
+import Bb from 'backbone'
 import template from './main.pug'
 import CartView from '../cart/views/CartView'
+import MenuItems from '../../../collections/MenuItems'
 import MenuItemsView from '../menu/MenuItemsView'
-// import Item from '../menuItem/Item.js'
 import ItemDetailView from '../menuItemView/ItemDetailView.js'
 import './main.styl'
 
@@ -16,17 +17,43 @@ export default View.extend({
     content: '#content'
   },
   initialize () {
-    this.listenTo(Radio.channel('uiChannel'), 'show:menuItem', this.showMenuItem)
+    this.listenTo(Radio.channel('uiChannel'), 'show:menuItem', this.onShowMenuItem)
+    this.collection = new MenuItems()
+    let menuDataDeferred = Radio.channel('resourceChannel').request('menuItems')
+    menuDataDeferred.done((collection) => {
+      this.collection.reset(collection)
+      this.collection.numPages = this.collection.length
+    })
   },
   onRender () {
-    this.showChildView('cart', new CartView())
-    this.showChildView('content', new MenuItemsView())
+    this.triggerMethod('showMenu')
   },
-  showMenu () {
-    this.showChildView('content', new MenuItemsView())
+  onShowMenu () {
+    this.showChildView('content', new MenuItemsView({ collection: this.collection }))
+    Bb.history.navigate('menu')
   },
-  showMenuItem (model) {
+  onShowMenuItem (model) {
     let itemView = new ItemDetailView({model: model})
     this.showChildView('content', itemView)
+    Bb.history.navigate(`menu/${model.id}`)
+  },
+  onShowCartView () {
+    this.showChildView('cart', new CartView())
+  },
+  childViewEvents: {
+    'getPrev:id': 'renderPrevItem',
+    'getNext:id': 'renderNextItem',
+    'addCart:id': 'addCartItem',
+    'goBack': 'onShowMenu'
+
+  },
+  renderPrevItem (id) {
+    this.triggerMethod('showMenuItem', this.collection.get(this.collection.pagePrev()))
+  },
+  renderNextItem (id) {
+    this.triggerMethod('showMenuItem', this.collection.get(this.collection.pageNext()))
+  },
+  addCartItem (id) {
+
   }
 })

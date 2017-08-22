@@ -1,9 +1,10 @@
 include ~common/views/_mixins.pug
 
+- const countTotal = `${itemCount} items${itemCount === 1 ? 's' : ''}`
 a.logo(href="/")
   +image('logo.png', 'logo')
 .cart
   a(href="/")
     span.left Shopping Cart
     span.right
-      span.count 1 item
+      span.count= countTotal

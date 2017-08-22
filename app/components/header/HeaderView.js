@@ -6,5 +6,8 @@ export default Mn.View.extend({
   template: template,
   ui: {
     cart: '.cart'
+  },
+  modelEvents: {
+    'change:itemCount': 'render'
   }
 })

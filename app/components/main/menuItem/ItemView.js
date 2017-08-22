@@ -10,18 +10,17 @@ export default Mn.View.extend({
     header: 'header',
     addCart: '.add_cart'
   },
-  events: {
-    'click @ui.header': 'handleClick',
-    'click @ui.addCart': 'addItem'
-  },
   triggers: {
-    'click @ui.header': 'show:details',
-    'click @ui.addCart': 'cart:add'
+    'click @ui.header': 'header:clicked',
+    'click @ui.addCart': 'addCart:clicked'
   },
-  handleClick () {
-    console.log('Header clicked')
+  onHeaderClicked () {
+    let isBeingViewed = this.model.get('isBeingViewed')
+    this.model.set({'isBeingViewed': !isBeingViewed})
   },
-  addCart () {
-    console.log('Added to cart')
+  onAddCartClicked () {
+    console.log('Item clicked')
+    let incremented = this.model.get('count') + 1
+    this.model.set({'inCart': true, 'count': incremented})
   }
 })

@@ -6,13 +6,9 @@ export default AppRouter.extend({
     this.controller = new AppController(options)
   },
   appRoutes: {
-    '': 'showLayout',
+    '': 'showHome',
     'menu': 'showMenu',
     'menu/:item': 'showMenuItem',
     'checkout': 'showCheckout'
-  },
-  onRoute (name, path, args) {
-    console.log(name, path, args)
-    this.navigate(path)
   }
 })
