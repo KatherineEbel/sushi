@@ -7,7 +7,7 @@ export default AppRouter.extend({
   },
   appRoutes: {
     '': 'showHome',
-    'menu': 'showHome',
+    'menu': 'showMenu',
     'menu/:item': 'showMenuItem'
   }
 })

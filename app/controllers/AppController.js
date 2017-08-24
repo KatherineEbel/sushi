@@ -2,9 +2,6 @@ import Mn from 'backbone.marionette'
 import app from '../components/App'
 Radio.DEBUG = true
 
-// const resourceChannel = Radio.channel('resourceChannel')
-// const uiChannel = Radio.channel('uiChannel')
-
 export default Mn.Object.extend({
   initialize (options) {
     this.rootView = options.rootView
@@ -13,7 +10,7 @@ export default Mn.Object.extend({
     app.showView(this.rootView)
   },
   showMenu () {
-    app.getView().getChildView('main').triggerMethod('show:main:view')
+    app.getView().getChildView('main').triggerMethod('show:menu')
   },
   showMenuItem (id) {
     const menuItemView = app.getView().getChildView('main')
