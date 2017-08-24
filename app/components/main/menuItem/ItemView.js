@@ -14,10 +14,6 @@ export default Mn.View.extend({
     'click @ui.header': 'header:clicked',
     'click @ui.addCart': 'addCart:clicked'
   },
-  onHeaderClicked () {
-    let isBeingViewed = this.model.get('isBeingViewed')
-    this.model.set({'isBeingViewed': !isBeingViewed})
-  },
   onAddCartClicked () {
     let incremented = this.model.get('count') + 1
     this.model.set({'inCart': true, 'count': incremented})

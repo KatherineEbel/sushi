@@ -1,9 +1,11 @@
-td: +image('sashimi-salad.jpg', 'cart-item')
-td Sashimi salad
+include ~common/views/_mixins.pug
+
+td: +image(image, 'cart-item')
+td= name
 td
   span.quantity_modifier
     i.fa.fa-minus(aria-hidden="true")
-  p 1
+  p= count
   span.quantity_modifier
     i.fa.fa-plus(aria-hidden="true")
-td $12.00
+td $#{price}

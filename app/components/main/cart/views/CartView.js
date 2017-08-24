@@ -32,7 +32,7 @@ export default View.extend({
     Radio.channel('uiChannel').trigger('cart:empty')
   },
   getCheckout () {
-    console.log('Ready to checkout!')
+    Radio.channel('uiChannel').trigger('show:checkout')
   },
   onRender () {
     this.showCartActionView()
@@ -42,6 +42,7 @@ export default View.extend({
     this.showChildView('cartItems', new CartItemCollectionView({ collection: collection }))
   },
   showCartActionView () {
-    this.showChildView('cartActions', new CartActionView())
+    const cartTotal = _.head(this.collection.slice(0, 1)).get('price')
+    this.showChildView('cartActions', new CartActionView({ cartTotal: cartTotal }))
   }
 })

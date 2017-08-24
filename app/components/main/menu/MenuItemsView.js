@@ -15,7 +15,6 @@ export default CollectionView.extend({
   },
   requestDetails (menuItemView) {
     this.collection.currentPage = menuItemView.model.id
-    console.log('Request details')
     uiChannel.trigger('show:menuItem', menuItemView.model)
   },
   itemSelected (menuItemView) {

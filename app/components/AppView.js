@@ -18,6 +18,7 @@ export default View.extend({
     this.triggerMethod('showHeaderView')
   },
   onShowMainView () {
+    console.log('show main view triggered')
     this.showChildView('main', new MainView())
   },
   onShowHeaderView () {

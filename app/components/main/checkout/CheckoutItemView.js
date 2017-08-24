@@ -3,7 +3,7 @@ import template from './orderItem.pug'
 import Item from '../menuItem/Item'
 
 export default View.extend({
-  tagName: tr,
+  tagName: 'tr',
   template: template,
   model: Item,
   ui: {
@@ -12,19 +12,27 @@ export default View.extend({
     'count': 'p'
   },
   events: {
-    'click @ui.plus': () => {
-      this.model.set({ count: this.model.get('count') + 1})
+    'click @ui.plus': function () {
+      this.model.set({ count: this.model.get('count') + 1 })
+      Radio.channel('uiChannel').trigger('item:added', this.model)
     },
-    'click @ui.minus': () => {
+    'click @ui.minus': function () {
       let count = this.model.get('count')
       this.model.set({ count: count > 0 ? count - 1 : 0 })
+      Radio.channel('uiChannel').trigger('item:removed', this.model)
     }
   },
   modelEvents: {
     'change:count': 'updateCount'
   },
   updateCount () {
+    let count = this.model.get('count')
+    if (count === 0) {
+      this.destroy()
+      return
+    }
     this.getUI('count').text(this.model.get('count'))
   },
-
+  initialize () {
+  }
 })

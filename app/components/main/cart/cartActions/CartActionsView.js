@@ -22,8 +22,8 @@ export default Mn.View.extend({
     const total = this.getUI('total')
     total.text(`$${parseFloat(this.model.get('cartTotal')).toFixed(2)}`)
   },
-  initialize () {
-    let firstCartItem = Radio.channel('uiChannel').request('first:item:added')
-    this.model = new CartActionsModel({ cartTotal: firstCartItem.get('price') })
+  initialize (options) {
+    const cartTotal = options.cartTotal
+    this.model = new CartActionsModel({ cartTotal: cartTotal })
   }
 })
