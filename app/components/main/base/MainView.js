@@ -8,19 +8,31 @@ import MenuItemsView from '../menu/MenuItemsView'
 import ItemDetailView from '../menuItemView/ItemDetailView.js'
 import './main.styl'
 
+const SlideDownRegion = Mn.Region.extend({
+  attachHtml (view) {
+    this.$el.empty().append(view.el)
+    this.$el.hide().slideDown('fast')
+  },
+  removeView (view) {
+    view.$el.slideUp('fast', () => {
+      this.destroyView(view)
+    })
+  }
+})
+
 export default Mn.View.extend({
   template: template,
   regions: {
     cart: {
       el: '#cart',
-      replaceElement: true
+      regionClass: SlideDownRegion
     },
     content: '#content'
   },
   childViewEvents: {
     'getPrev:id': 'renderPrevItem',
     'getNext:id': 'renderNextItem',
-    'addCart:id': 'addCartItem',
+    'add:item': 'addItem',
     'goBack': 'onShowMenu',
     'cancelOrder': 'onShowMenu'
   },
@@ -30,12 +42,6 @@ export default Mn.View.extend({
   initialize () {
     this.listenTo(Radio.channel('uiChannel'), 'show:menuItem', this.onShowMenuItem)
     this.listenTo(Radio.channel('uiChannel'), 'cart:empty', () => this.getRegion('cart').empty())
-    this.listenTo(Radio.channel('uiChannel'), 'item:added', (model) => {
-      if (this.getRegion('content').currentView.el.id === 'checkout') {
-        return
-      }
-      this.triggerMethod('showCartView', model)
-    })
     this.listenTo(Radio.channel('uiChannel'), 'show:checkout', () => {
       this.onShowCheckout()
       this.emptyCart()
@@ -60,14 +66,13 @@ export default Mn.View.extend({
   },
   onShowCartView (model) {
     if (!this.getRegion('cart').hasView()) {
-      const cartView = new CartView()
-      cartView.collection.add(model)
+      const cartView = new CartView({ item: model })
       this.showChildView('cart', cartView)
     }
   },
   onShowCheckout () {
-    let cartCollection = this.getRegion('cart').currentView.collection
-    this.showChildView('content', new CheckoutLayoutView({ collection: cartCollection }))
+    let cartModel = this.getRegion('cart').currentView.model
+    this.showChildView('content', new CheckoutLayoutView({ model: cartModel }))
     Bb.history.navigate('checkout')
   },
   renderPrevItem (id) {
@@ -76,7 +81,11 @@ export default Mn.View.extend({
   renderNextItem (id) {
     this.triggerMethod('showMenuItem', this.collection.get(this.collection.pageNext()))
   },
-  addCartItem (id) {
-
+  addItem (model) {
+    if (this.getRegion('content').currentView.el.id === 'checkout') {
+      console.log('if clause executed')
+      return
+    }
+    this.triggerMethod('showCartView', model)
   }
 })

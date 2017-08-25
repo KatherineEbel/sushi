@@ -2,4 +2,4 @@ include ~common/views/_mixins.pug
 
 figure
   +image(image, 'cart-item')
-  p.price #{count} x $#{parseFloat(price).toFixed(2)}
+  p.price #{count} x #{format(price)}

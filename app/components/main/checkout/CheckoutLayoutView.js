@@ -9,6 +9,9 @@ export default View.extend({
     total: 'span.total',
     cancel: 'footer a'
   },
+  modelEvents: {
+    'change:cartTotal': 'updateTotal'
+  },
   regions: {
     'orderItems': {
       el: 'tbody',
@@ -24,9 +27,17 @@ export default View.extend({
   onCancelOrder () {
     Radio.channel('uiChannel').trigger('cart:empty')
   },
+  updateTotal (model) {
+    this.getUI('total').text(`$${parseFloat(model.get('cartTotal')).toFixed(2)}`)
+  },
+  incrementTotal (price) {
+    this.model.set({ cartTotal: this.model.get('cartTotal') + price })
+  },
+  decrementTotal (price) {
+    this.model.set({ cartTotal: this.model.get('cartTotal') - price })
+  },
   initialize () {
-    this.listenTo(Radio.channel('uiChannel'), 'cart:total', (total) => {
-      this.getUI('total').text(`$${parseFloat(total).toFixed(2)}`)
-    })
+    this.listenTo(Radio.channel('uiChannel'), 'item:added', this.incrementTotal)
+    this.listenTo(Radio.channel('uiChannel'), 'item:removed', this.decrementTotal)
   }
 })

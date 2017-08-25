@@ -11,6 +11,10 @@ export default Mn.View.extend({
     'checkout': '.checkout',
     'total': '.total'
   },
+  initialize (options) {
+    this.model = new CartActionsModel({ cartTotal: options.cartTotal })
+    this.listenTo(Radio.channel('uiChannel'), 'cart:total', (total) => this.model.set({ cartTotal: total }))
+  },
   triggers: {
     'click @ui.emptyCart': 'notifyEmptyCart',
     'click @ui.checkout': 'notifyCheckout'
@@ -18,12 +22,11 @@ export default Mn.View.extend({
   modelEvents: {
     'change:cartTotal': 'updateTotal'
   },
+  onRender () {
+    this.updateTotal()
+  },
   updateTotal () {
     const total = this.getUI('total')
     total.text(`$${parseFloat(this.model.get('cartTotal')).toFixed(2)}`)
-  },
-  initialize (options) {
-    const cartTotal = options.cartTotal
-    this.model = new CartActionsModel({ cartTotal: cartTotal })
   }
 })

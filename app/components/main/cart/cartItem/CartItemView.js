@@ -1,18 +1,18 @@
 import Mn from 'backbone.marionette'
-import CartItem from './CartItem'
+import Item from '../../menuItem/Item.js'
 import template from './cartItem.pug'
 
 export default Mn.View.extend({
   tagName: 'li',
   template: template,
-  model: CartItem,
+  model: Item,
   modelEvents: {
-    'change:count': 'handleCountChange'
+    'change:count': 'updatePrice'
   },
   ui: {
     'price': '.price'
   },
-  handleCountChange (model) {
+  updatePrice (model) {
     let price = this.getUI('price')
     let count = this.model.get('count')
     let itemPrice = this.model.get('price')

@@ -13,10 +13,17 @@ export default View.extend({
     addCart: 'a.add_cart',
     close: 'a.close'
   },
+  events: {
+    'click @ui.addCart': 'addItem'
+  },
   triggers: {
     'click @ui.prev': 'getPrev:id',
     'click @ui.next': 'getNext:id',
-    'click @ui.addCart': 'addCart:id',
     'click @ui.close': 'goBack'
+  },
+  addItem () {
+    this.triggerMethod('add:item', this.model)
+    this.model.set({ count: this.model.get('count') + 1 })
+    Radio.channel('uiChannel').trigger('item:added', this.model)
   }
 })

@@ -11,13 +11,14 @@ export default CollectionView.extend({
   childView: MenuItemView,
   childViewEvents: {
     'header:clicked': 'requestDetails',
-    'addCart:clicked': 'itemSelected'
+    'addCart:clicked': 'addItem'
+  },
+  addItem (menuItemView) {
+    uiChannel.trigger('item:added', menuItemView.model)
+    this.triggerMethod('add:item', menuItemView.model)
   },
   requestDetails (menuItemView) {
     this.collection.currentPage = menuItemView.model.id
     uiChannel.trigger('show:menuItem', menuItemView.model)
-  },
-  itemSelected (menuItemView) {
-    uiChannel.trigger('item:added', menuItemView.model)
   }
 })

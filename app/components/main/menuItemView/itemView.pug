@@ -10,7 +10,7 @@ section
     h1= name
     p= description
     footer
-      h2 $#{parseFloat(price).toFixed(2)}
+      h2 #{format(price)}
       a.add_cart(href="#") Add to cart
   aside
     h3 Nutritional Information

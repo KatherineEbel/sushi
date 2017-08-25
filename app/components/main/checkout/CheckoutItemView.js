@@ -14,12 +14,12 @@ export default View.extend({
   events: {
     'click @ui.plus': function () {
       this.model.set({ count: this.model.get('count') + 1 })
-      Radio.channel('uiChannel').trigger('item:added', this.model)
+      Radio.channel('uiChannel').trigger('item:added', this.model.get('price'))
     },
     'click @ui.minus': function () {
       let count = this.model.get('count')
       this.model.set({ count: count > 0 ? count - 1 : 0 })
-      Radio.channel('uiChannel').trigger('item:removed', this.model)
+      Radio.channel('uiChannel').trigger('item:removed', this.model.get('price'))
     }
   },
   modelEvents: {
@@ -32,7 +32,5 @@ export default View.extend({
       return
     }
     this.getUI('count').text(this.model.get('count'))
-  },
-  initialize () {
   }
 })

@@ -1,3 +1,5 @@
+include ~common/views/_mixins.pug
+
 .img_top
 section
   h1 Order Details
@@ -11,7 +13,7 @@ section
     tbody
       //- order items go here
   p Total:
-    span.total $12.00
+    span.total #{format(cartTotal)}
   footer
     a(href="/") Cancel order
     form(action="/" method="post")
